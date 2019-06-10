@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+
+  <title>Movie Details</title>
+  <script src="jquery-2.1.4.js"></script>
+  <script src="movie.js"></script>
+  <script src="moviebrowser.js"></script>
+  <link rel="stylesheet" type="text/css" href="movies.css">
+
+  <script>
+    var API_KEY = "";
+    var URL_BASE = "http://api.themoviedb.org/3/movie/";
+    var IMG_URL_BASE = "http://image.tmdb.org/t/p/w185//";
+
+    $(document).ready(function () {
+        movieId = decodeURIComponent(window.location.search).substring(9);
+        loadDetails(movieId);
+    });
+
+    function loadDetails(movieId){
+        var movie = new Movie(movieId);
+        movie.setSource(API_KEY, URL_BASE, IMG_URL_BASE);
+        movie = movie.display("body", "movieTitle", "overview");
+        
+    }
+
+
+  </script>
+</head>
+
+<body>
+    <a id="movieTitle" href="#" class="button">Home</a><br><br>
+    <p id="overview"></p>
+</body>

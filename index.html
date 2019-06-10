@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<head>
+
+  <title>Pip Movies</title>
+  <script src="jquery-2.1.4.js"></script>
+  <script src="movie.js"></script>
+  <script src="moviebrowser.js"></script>
+  <link rel="stylesheet" type="text/css" href="movies.css">
+  <script>
+    var API_KEY = "";
+    var URL_BASE = "http://api.themoviedb.org/3/movie/";
+    var IMG_URL_BASE = "http://image.tmdb.org/t/p/w185//";
+
+    $(document).ready(function () {
+      var movieBrowser = new MovieBrowser(API_KEY, URL_BASE, IMG_URL_BASE);
+      movieBrowser.display();
+    });
+  </script>
+</head>
+
+<body>
+  <h3>Top Movies</h3>
+</body>
